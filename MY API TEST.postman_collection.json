@@ -74,7 +74,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n  \"title\": \"New Testing Phone\",\r\n  \"price\": 999,\r\n  \"description\": \"A wonderful phone for QA automation testing\",\r\n  \"categoryId\": 1,\r\n  \"images\": [\"https://placeimg.com/640/480/any\"]\r\n}",
+          "raw": "{\r\n  \"title\": \"Standard QA Product\",\r\n  \"price\": 150,\r\n  \"description\": \"Simple description for automation testing\",\r\n  \"categoryId\": 1,\r\n  \"images\": [\"https://i.imgur.com/QkIa5tT.jpeg\"]\r\n}",
           "options": {
             "raw": {
               "language": "json"
