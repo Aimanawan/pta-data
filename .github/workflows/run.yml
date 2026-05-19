@@ -13,8 +13,5 @@ jobs:
           python-version: '3.11'
       - name: Libraries install
         run: pip install selenium pytest webdriver-manager
-      - name: Install Chrome
-        run: |
-          sudo apt-get install -y chromium-browser
       - name: Run scraper
-        run: pytest PTA_test1.py -v
+        run: pytest PTA_test1.py -v -s
