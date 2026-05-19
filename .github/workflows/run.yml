@@ -17,13 +17,13 @@ jobs:
         uses: browser-actions/setup-chrome@latest
         
       - name: Libraries install
-        run: pip install selenium pytest webdriver-manager allure-pytest
+        run: pip install selenium pytest webdriver-manager pytest-html
         
       - name: Run tests
-        run: pytest PTA_test1.py -v -s --alluredir=allure-results
+        run: pytest PTA_test1.py -v -s --html=report.html --self-contained-html
         
-      - name: Upload Allure Results
+      - name: Upload HTML Report
         uses: actions/upload-artifact@v4
         with:
-          name: allure-report
-          path: allure-results
+          name: test-report
+          path: report.html
