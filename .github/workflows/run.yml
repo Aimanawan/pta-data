@@ -17,7 +17,19 @@ jobs:
         uses: browser-actions/setup-chrome@latest
         
       - name: Libraries install
-        run: pip install selenium pytest webdriver-manager
+        run: pip install selenium pytest webdriver-manager allure-pytest
         
       - name: Run scraper
-        run: pytest PTA_test1.py -v -s
+        run: pytest PTA_test1.py -v -s --alluredir=allure-results
+        
+      - name: Get Allure
+        uses: simple-oss/allure2-action@master
+        with:
+          allure_results: allure-results
+          allure_report: allure-report
+          
+      - name: Upload Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-report
+          path: allure-report
