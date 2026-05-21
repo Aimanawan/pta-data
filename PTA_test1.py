@@ -25,7 +25,7 @@ class TestTest1():
         self.driver.quit()
 
     def test_test1(self):
-        # ❌ Galat URL — yeh page exist nahi karta, test fail hogi
+        # ❌ Wrong/incomplete URL — this will cause the test to fail
         self.driver.get("https://www.pta.gov.")
         time.sleep(5)
         print("Title:", self.driver.title)
