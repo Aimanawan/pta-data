@@ -6,29 +6,30 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 
+
 class TestTest1():
-  def setup_method(self, method):
-    options = Options()
-    options.add_argument("--headless=new")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--disable-gpu")
-    options.add_argument("--window-size=1920,1080")
-    options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36")
-    self.driver = webdriver.Chrome(
-      service=Service(ChromeDriverManager().install()),
-      options=options
-    )
+    def setup_method(self, method):
+        options = Options()
+        options.add_argument("--headless=new")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--window-size=1920,1080")
+        options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/1")
+        self.driver = webdriver.Chrome(
+            service=Service(ChromeDriverManager().install()),
+            options=options
+        )
 
-  def teardown_method(self, method):
-    self.driver.quit()
+    def teardown_method(self, method):
+        self.driver.quit()
 
-  def test_test1(self):
-    self.driver.get("https://www.pta.gov.pk/")
-    time.sleep(5)
-    print("Title:", self.driver.title)
-    print("URL:", self.driver.current_url)
-    headings = self.driver.find_elements(By.CSS_SELECTOR, "h1, h2, h3")
-    for h in headings:
-      if h.text.strip():
-        print("Heading:", h.text.strip())
+    def test_test1(self):
+        # ❌ Galat URL — yeh page exist nahi karta, test fail hogi
+        self.driver.get("https://www.pta.gov.")
+        time.sleep(5)
+        print("Title:", self.driver.title)
+        print("URL:", self.driver.current_url)
+        headings = self.driver.find_elements(By.CSS_SELECTOR, "h1, h2, h3")
+        for h in headings:
+            print(h.text)
